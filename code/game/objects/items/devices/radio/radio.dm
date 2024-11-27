@@ -295,7 +295,7 @@ var/global/list/default_interrogation_channels = list(
 	var/obj/item/card/id/I = GetIdCard()
 	return has_access(list(), req_one_accesses, I ? I.GetAccess() : list())
 
-/mob/abstract/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
+/mob/abstract/ghost/observer/has_internal_radio_channel_access(var/list/req_one_accesses)
 	return can_admin_interact()
 
 /obj/item/device/radio/proc/text_wires()
@@ -308,7 +308,7 @@ var/global/list/default_interrogation_channels = list(
 	var/list = !!(chan_stat&FREQ_LISTENING)!=0
 	return {"
 			<B>[chan_name]</B><br>
-			Speaker: <A href='byond://?src=\ref[src];ch_name=[chan_name];listen=[!list]'>[list ? "Engaged" : "Disengaged"]</A><BR>
+			Speaker: <A href='byond://?src=[REF(src)];ch_name=[chan_name];listen=[!list]'>[list ? "Engaged" : "Disengaged"]</A><BR>
 			"}
 
 /obj/item/device/radio/CanUseTopic()
